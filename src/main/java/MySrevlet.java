@@ -26,7 +26,7 @@ public class MySrevlet extends GenericServlet {
 	private ResultSet rs;
 	private PreparedStatement ps;
     private String query1;
-	private String url="jdbc:mysql://localhost:3306/snp?user=root&password=12345";
+	private String url="jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
 		//UserInformationDao dao=new UserInformationDao();
@@ -39,9 +39,9 @@ public class MySrevlet extends GenericServlet {
 	PrintWriter out=res.getWriter();
 	res.setContentType("Text/html");
     out.println("done");
-	query="insert into snp.shift values(?,?,?,?)";	
+	query="insert into snp values(?,?,?,?)";	
 	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		connect=DriverManager.getConnection(url);
 		ps=connect.prepareStatement(query);
 		ps.setString(1, date);
@@ -61,9 +61,9 @@ public class MySrevlet extends GenericServlet {
 	}
 	if (date1!=null && name1!=null)
 	{
-	query="Select * from snp.shift where date=? and name=?";
+	query="Select * from snp where date=? and name=?";
 	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		connect=DriverManager.getConnection(url);
 		ps=connect.prepareStatement(query);
 		ps.setString(1, date1);
