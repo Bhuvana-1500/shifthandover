@@ -17,7 +17,7 @@ public class AuthFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         if (httpRequest.getRemoteUser() == null) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/.auth/login/aad");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/");
         } else {
             chain.doFilter(request, response);
         }
