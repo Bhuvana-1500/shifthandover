@@ -25,8 +25,8 @@
 <center>
 <div style="text-align:center; margin-top:100px;">
     <h1>Welcome to Service Portal</h1>
-    <button class="btn" onclick="window.location.href='shiftHandoverForm.html'">Shift Handover Form</button>
-    <button class="btn" onclick="window.location.href='searchDetailsForm.html'">Search Details</button>
+    <button class="btn" onclick="window.location.href='shiftHandoverForm.jsp'">Shift Handover Form</button>
+    <button class="btn" onclick="window.location.href='searchDetailsForm.jsp'">Search Details</button>
 </div>
 </center>
 </body>
