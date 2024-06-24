@@ -4,7 +4,7 @@
     session.invalidate();
 
     // Redirect to Azure AD logout URL
-    String tenantId = "YOUR_TENANT_ID";  // Replace with your actual tenant ID
+    String tenantId = "30bf9f37-d550-4878-9494-1041656caf27";  // Replace with your actual tenant ID
     String postLogoutRedirectUri = "https://javaterraform.azurewebsites.net/index.jsp";
     String logoutUrl = "https://login.microsoftonline.com/" + tenantId + "/oauth2/v2.0/logout?post_logout_redirect_uri=" + postLogoutRedirectUri;
 
