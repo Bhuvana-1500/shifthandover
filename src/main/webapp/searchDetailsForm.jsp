@@ -6,6 +6,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SearchDetails</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 </head>
 <body>
 <div style="height:auto; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
@@ -15,7 +29,7 @@
 <table>
 <tr>
 <td>Date:</td>
-<td> <input type="date" placeholder="YYYY-MM-DD" name="dates"> <td>
+<td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
 </tr>
 <tr>
 <td>Name:</td>
@@ -27,9 +41,6 @@
     <input type="submit" value="search">
 </center>
 </form>
-</center>
-</div>
-
 <%
     boolean searchPerformed = request.getParameter("dates") != null && request.getParameter("names") != null;
 
@@ -53,7 +64,7 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h1 style='color:pink;'>Your details based on your date and name:</h1></center>");
-                    out.println("<center><table border='1'>");
+                    out.println("<center><table>");
                     out.println("<tr><th>Date</th><th>Name</th><th>Department</th><th>Comments</th></tr>");
 
                     while (rs.next()) {
@@ -80,5 +91,7 @@
         }
     }
 %>
+</center>
+</div>
 </body>
 </html>
