@@ -15,7 +15,7 @@
 <table>
 <tr>
 <td>Date:</td>
-<td> <input type="date" placeholder="YYYY-MM-DD" name="date"> <td>
+<td> <input type="date" placeholder="YYYY-MM-DD" name="date"> </td>
 </tr>
 <tr>
 <td>Name:</td>
@@ -44,9 +44,9 @@
     String dep1 = request.getParameter("dep");
     String com1 = request.getParameter("com");
 
-    if (date1 != null && name1 != null && dep1 != null && com1 != null) {
+    if (date1 != null && name1 != null && dep1 != null && com1 != null && !date1.isEmpty() && !name1.isEmpty() && !dep1.isEmpty() && !com1.isEmpty()) { 
         String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
-        String query = "INSERT INTO snp VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO dbo.snp (date, name, department, comments) VALUES (?, ?, ?, ?)";
         
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -62,7 +62,10 @@
             }
         } catch (Exception e) {
             e.printStackTrace();
+            out.println("<center><h1 style='color:red;'>An error occurred while processing your request.</h1></center>");
         }
+    } else {
+        out.println("<center><h1>Please Insert the Data...!!!</h1></center>");
     }
 %>
 </body>
