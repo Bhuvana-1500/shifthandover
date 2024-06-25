@@ -48,7 +48,7 @@
 </style>
 </head>
 <body>
-<div style="height:700px; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
+<div style="height:700px; width:700px; margin:auto; background-color:lightslategray; border-radius:15px; padding:50px;">
 <div class="top-right-container">
     <%
         String user = request.getRemoteUser();
