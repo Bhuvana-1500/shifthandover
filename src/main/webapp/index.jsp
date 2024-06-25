@@ -23,7 +23,7 @@
     .top-right-container {
         position: absolute;
         top: 10px;
-        right: 200px;
+        right: 250px;
         text-align: right;
     }
     .top-right-container .btn {
@@ -48,7 +48,7 @@
 </style>
 </head>
 <body>
-<div style="height:700px; width:700px; margin:auto; background-color:lightslategray; border-radius:15px; padding:50px;">
+<div style="height:700px; width:700px; margin:auto; background-color:lightsteelblue; border-radius:15px; padding:50px;">
 <div class="top-right-container">
     <%
         String user = request.getRemoteUser();
