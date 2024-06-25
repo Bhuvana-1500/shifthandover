@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-<div style="height:auto; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
+<div style="height:700px; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
 <center>
 <form method="post">
 <h1>Search Your Details</h1>
