@@ -19,28 +19,26 @@
         background-color: #ccc;
         color: #fff;
     }
-    .top-left-container {
+    .top-right-container {
         position: absolute;
         top: 10px;
-        left: 10px;
-        display: flex;
-        align-items: center;
+        right: 10px;
+        text-align: right;
     }
-    .top-left-container .btn {
+    .top-right-container .btn {
         height: auto;
         width: auto;
         padding: 5px 10px;
-        margin-left: 10px;
+        margin: 0;
         border: none;
         background-color: transparent;
         color: black;
         font-size: 16px;
-        cursor: pointer;
     }
-    .top-left-container .btn:hover {
-        text-decoration: underline;
+    .top-right-container .btn:hover {
         background-color: transparent;
         color: black;
+        text-decoration: underline;
     }
     body {
         background-color: aqua;
@@ -54,12 +52,11 @@
 </style>
 </head>
 <body>
-<div class="top-left-container">
+<div class="top-right-container">
     <%
         String user = request.getRemoteUser();
         if (user != null) {
-            out.println("<span>" + user + "</span>");
-            out.println("<button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button>");
+            out.println("<div>Welcome, " + user + "!<br><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
         }
     %>
 </div>
@@ -68,7 +65,6 @@
     <h1>Welcome to Service Portal</h1>
     <%
         if (user != null) {
-            out.println("<span>Welcome, " + user + "!</span>");
             out.println("<button class='btn' onclick=\"window.location.href='shiftHandoverForm.jsp'\">Shift Handover Form</button>");
             out.println("<button class='btn' onclick=\"window.location.href='searchDetailsForm.jsp'\">Search Details</button>");
         } else {
