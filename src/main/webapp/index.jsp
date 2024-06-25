@@ -19,19 +19,58 @@
         background-color: #ccc;
         color: #fff;
     }
+    .top-left-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    .top-left-container .btn {
+        height: auto;
+        width: auto;
+        padding: 5px 10px;
+        margin-left: 10px;
+        border: none;
+        background-color: transparent;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .top-left-container .btn:hover {
+        text-decoration: underline;
+        background-color: transparent;
+        color: black;
+    }
+    body {
+        background-color: aqua;
+        margin: 0;
+        padding: 0;
+    }
+    .center-content {
+        text-align: center;
+        margin-top: 150px;
+    }
 </style>
 </head>
-<body style="background-color: aqua;">
-<center>
-<div style="text-align:center; margin-top:100px;">
-    <h1>Welcome to Service Portal</h1>
+<body>
+<div class="top-left-container">
     <%
         String user = request.getRemoteUser();
         if (user != null) {
-            out.println("<p>Welcome, " + user + "!</p>");
+            out.println("<span>" + user + "</span>");
+            out.println("<button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button>");
+        }
+    %>
+</div>
+<center>
+<div class="center-content">
+    <h1>Welcome to Service Portal</h1>
+    <%
+        if (user != null) {
+            out.println("<span>Welcome, " + user + "!</span>");
             out.println("<button class='btn' onclick=\"window.location.href='shiftHandoverForm.jsp'\">Shift Handover Form</button>");
             out.println("<button class='btn' onclick=\"window.location.href='searchDetailsForm.jsp'\">Search Details</button>");
-            out.println("<button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button>");
         } else {
             out.println("<button class='btn' onclick=\"window.location.href='/.auth/login/aad'\">Sign In</button>");
         }
