@@ -42,7 +42,7 @@
         text-decoration: underline;
     }
     body {
-        background-color: blueviolet;
+        background-color: lightslategray;
         margin: 0;
         padding: 0;
     }
