@@ -39,13 +39,12 @@
 </div>
 
 <%
-    String date = request.getParameter("date");
-    String name = request.getParameter("name");
-    String dep = request.getParameter("dep");
-    String com = request.getParameter("com");
+    String date1 = request.getParameter("date");
+    String name1 = request.getParameter("name");
+    String dep1 = request.getParameter("dep");
+    String com1 = request.getParameter("com");
 
-    if (date != null && name != null && dep != null && com != null) {
-        out.println("<h1>name</h1>);
+    if (date1 != null && name1 != null && dep1 != null && com1 != null) {
         String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
         String query = "INSERT INTO snp VALUES (?, ?, ?, ?)";
         
@@ -53,21 +52,17 @@
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection connect = DriverManager.getConnection(url);
             PreparedStatement ps = connect.prepareStatement(query);
-            ps.setString(1, date);
-            ps.setString(2, name);
-            ps.setString(3, dep);
-            ps.setString(4, com);
+            ps.setString(1, date1);
+            ps.setString(2, name1);
+            ps.setString(3, dep1);
+            ps.setString(4, com1);
             int rs1 = ps.executeUpdate();
-            out.println("<h1>rs1</h1>");
             if (rs1 > 0) {
                 out.println("<center><h1 style='color:green;'>Record Added..</h1></center>");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    else{
-      out.println("<h1>Please enter the values</h1>);
     }
 %>
 </body>
