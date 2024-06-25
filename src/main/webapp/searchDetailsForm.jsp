@@ -50,7 +50,7 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h1 style='color:pink;'>Your details based on your date and name:</h1></center>");
-                    out.println("<center><table border='1'>");
+                    out.println("<center><table border-collapse: collapse>");
                     out.println("<tr><th>Date</th><th>Name</th><th>Department</th><th>Comments</th></tr>");
 
                     while (rs.next()) {
