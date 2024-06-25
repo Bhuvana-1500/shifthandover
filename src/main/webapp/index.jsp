@@ -23,7 +23,7 @@
     .top-right-container {
         position: absolute;
         top: 10px;
-        right: 100px;
+        right: 200px;
         text-align: right;
     }
     .top-right-container .btn {
