@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,7 @@
         text-decoration: underline;
     }
     body {
-        background-color: lightslategray;
+        background-color: blueviolet;
         margin: 0;
         padding: 0;
     }
@@ -55,8 +56,9 @@
 <div class="top-right-container">
     <%
         String user = request.getRemoteUser();
-        if (user != null) { 
-            out.println("<div>" + user + "<br><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
+        if (user != null) {
+            out.println("<span>" + user + "</span><br><br>"); 
+            out.println("<div>Welcome, " + user + "!<br><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
         }
     %>
 </div>
@@ -65,7 +67,7 @@
     <h1>Welcome to Service Portal</h1>
     <%
         if (user != null) {
-            out.println("<span>Welcome, " + user + "!</span>"); <br> <br>
+            out.println("<span>Welcome, " + user + "!</span>");
             out.println("<button class='btn' onclick=\"window.location.href='shiftHandoverForm.jsp'\">Shift Handover Form</button>");
             out.println("<button class='btn' onclick=\"window.location.href='searchDetailsForm.jsp'\">Search Details</button>");
         } else {
