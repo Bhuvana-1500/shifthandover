@@ -41,7 +41,7 @@
         text-decoration: underline;
     }
     body {
-        background-color: rgb(8, 127, 247);
+        background-color: lightslategray;
         margin: 0;
         padding: 0;
     }
