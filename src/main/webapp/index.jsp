@@ -58,7 +58,7 @@
         String user = request.getRemoteUser();
         if (user != null) {
             out.println("<span>" + user + "</span><br><br>"); 
-            out.println("<div>Welcome, " + user + "!<br><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
+            out.println("<div><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
         }
     %>
 </div>
