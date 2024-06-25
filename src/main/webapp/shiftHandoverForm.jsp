@@ -35,9 +35,6 @@
     <input type="submit" value="submit">
 </center>
 </form>
-</center>
-</div>
-
 <%
     String date1 = request.getParameter("date");
     String name1 = request.getParameter("name");
@@ -68,5 +65,7 @@
         out.println("<center><h1>Please Insert the Data...!!!</h1></center>");
     }
 %>
+</center>
+</div>
 </body>
 </html>
