@@ -42,10 +42,6 @@
 <td>Date:</td>
 <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
 </tr>
-<tr>
-<td>Name:</td>
-<td><input type="text" placeholder="Enter Your Name" name="names"></td>
-</tr>
 </table>
 <center>
     <button type="button" onclick="window.location.href='index.jsp'">Back</button>
@@ -56,28 +52,26 @@
 </center>
 
 <%
-    boolean searchPerformed = request.getParameter("dates") != null && request.getParameter("names") != null;
+    boolean searchPerformed = request.getParameter("dates") != null;
 
     if (searchPerformed) {
         String date1 = request.getParameter("dates");
-        String name1 = request.getParameter("names");
 
-        if (date1 != null && name1 != null && !date1.isEmpty() && !name1.isEmpty()) {
+        if (date1 != null && !date1.isEmpty()) {
             String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
-            String query = "SELECT * FROM snp WHERE date = ? AND name = ?";
+            String query = "SELECT * FROM snp WHERE date = ?";
 
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 Connection connect = DriverManager.getConnection(url);
                 PreparedStatement ps = connect.prepareStatement(query);
                 ps.setString(1, date1);
-                ps.setString(2, name1);
                 ResultSet rs = ps.executeQuery();
 
                 if (!rs.isBeforeFirst()) { // Check if ResultSet is empty
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
-                    out.println("<center><h1 style='color:pink;'>Your details based on your date and name:</h1></center>");
+                    out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
                     out.println("<center><table border='1'>");
                     out.println("<tr><th>Date</th><th>Name</th><th>Department</th><th>Comments</th></tr>");
 
@@ -101,7 +95,7 @@
                 out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
             }
         } else {
-            out.println("<center><h1 style='color:red;'>Please enter both date and name</h1></center>");
+            out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
         }
     }
 %>
