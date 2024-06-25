@@ -19,7 +19,7 @@
 </tr>
 <tr>
 <td>Name:</td>
-<td><input type="text" placeholder="Enter Your Name" name="name"></td>
+<td><input type="text" name="name" value="<%= request.getAttribute("username") %>" readonly></td>
 </tr>
 <tr>
 <td>Department:</td>
