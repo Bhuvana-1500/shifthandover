@@ -6,16 +6,41 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SearchDetails</title>
+<style>
+    table {
+        border-collapse: collapse; /* Ensure single line borders between cells */
+        width: 100%;
+        border: none; /* Initially hide borders */
+    }
+    th, td {
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    /* Adjustments for form layout */
+    form {
+        text-align: left; /* Align form elements to the left */
+    }
+    table input[type="date"], table input[type="text"] {
+        width: calc(100% - 18px); /* Adjust input width to fit the cell */
+        padding: 6px; /* Adjust input padding */
+        margin: 0; /* Remove default margin */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+</style>
 </head>
 <body>
 <div style="height:auto; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
-<center>
+    <center>
+    <div style="width:300px;">
 <form method="post">
 <h1>Search Your Details</h1>
 <table>
 <tr>
 <td>Date:</td>
-<td> <input type="date" placeholder="YYYY-MM-DD" name="dates"> <td>
+<td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
 </tr>
 <tr>
 <td>Name:</td>
@@ -27,6 +52,9 @@
     <input type="submit" value="search">
 </center>
 </form>
+</div>
+</center>
+
 <%
     boolean searchPerformed = request.getParameter("dates") != null && request.getParameter("names") != null;
 
@@ -50,7 +78,7 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h1 style='color:pink;'>Your details based on your date and name:</h1></center>");
-                    out.println("<center><table border-collapse: collapse>");
+                    out.println("<center><table border='1'>");
                     out.println("<tr><th>Date</th><th>Name</th><th>Department</th><th>Comments</th></tr>");
 
                     while (rs.next()) {
@@ -77,7 +105,6 @@
         }
     }
 %>
-</center>
 </div>
 </body>
 </html>
