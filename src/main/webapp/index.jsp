@@ -41,11 +41,6 @@
         color: black;
         text-decoration: underline;
     }
-    body {
-        background-color: lightslategray;
-        margin: 0;
-        padding: 0;
-    }
     .center-content {
         text-align: center;
         margin-top: 150px;
@@ -53,10 +48,12 @@
 </style>
 </head>
 <body>
+<div style="height:auto; width:700px; margin:auto; background-color:lightslategray; border-radius:15px; padding:50px;">
 <div class="top-right-container">
     <%
         String user = request.getRemoteUser();
         if (user != null) {
+            session.setAttribute("username", user);
             out.println("<span>" + user + "</span><br><br>"); 
             out.println("<div><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
         }
@@ -68,7 +65,6 @@
     <%
         if (user != null) {
             out.println("<span>Welcome, " + user + "!</span><br><br>");
-            request.setAttribute("username", user);
             out.println("<button class='btn' onclick=\"window.location.href='shiftHandoverForm.jsp'\">Shift Handover Form</button>");
             out.println("<button class='btn' onclick=\"window.location.href='searchDetailsForm.jsp'\">Search Details</button>");
         } else {
@@ -77,5 +73,6 @@
     %>
 </div>
 </center>
+</div>
 </body>
 </html>
