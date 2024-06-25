@@ -66,6 +66,9 @@
             e.printStackTrace();
         }
     }
+    else{
+      out.println("<h1>Please enter the values</h1>);
+    }
 %>
 </body>
 </html>
