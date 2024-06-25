@@ -8,7 +8,7 @@
 <title>ShiftHandover</title>
 </head>
 <body>
-<div style="height:300px; width:250px; margin:auto; background-color:skyblue; border-radius:15px; padding:50px; margin-top:100px;">
+<div style="height:auto; width:700px; margin:auto; background-color:skyblue; border-radius:15px; padding:50px;">
 <center>
 <form method="post">
 <h1>Shift Handover</h1>
@@ -19,7 +19,7 @@
 </tr>
 <tr>
 <td>Name:</td>
-<td><input type="text" name="name" value="<%= request.getAttribute("username") %>" readonly></td>
+<td><input type="text" name="name" value="<%= session.getAttribute("username") %>" readonly></td>
 </tr>
 <tr>
 <td>Department:</td>
