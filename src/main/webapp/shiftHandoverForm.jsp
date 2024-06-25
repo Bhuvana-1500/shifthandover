@@ -45,6 +45,7 @@
     String com = request.getParameter("com");
 
     if (date != null && name != null && dep != null && com != null) {
+        out.println("<h1>name</h1>);
         String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
         String query = "INSERT INTO snp VALUES (?, ?, ?, ?)";
         
@@ -57,6 +58,7 @@
             ps.setString(3, dep);
             ps.setString(4, com);
             int rs1 = ps.executeUpdate();
+            out.println("<h1>rs1</h1>");
             if (rs1 > 0) {
                 out.println("<center><h1 style='color:green;'>Record Added..</h1></center>");
             }
