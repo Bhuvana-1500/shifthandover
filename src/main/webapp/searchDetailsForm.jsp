@@ -8,7 +8,7 @@
 <title>SearchDetails</title>
 </head>
 <body>
-<div style="height:200px; width:250px; margin:auto; background-color:pink; border-radius:15px; padding:50px; margin-top:100px;">
+<div style="height:auto; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
 <center>
 <form method="post">
 <h1>Search Your Details</h1>
