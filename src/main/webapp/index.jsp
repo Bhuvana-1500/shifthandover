@@ -5,9 +5,15 @@
 <meta charset="ISO-8859-1">
 <title>ShiftHandover</title>
 <style>
+    body {
+        color: blue;
+    }
+    h1 {
+        font-size: 2em;
+    }
     .btn {
         height: 100px;
-        width: 130px;
+        width: 150px; /* Increased width */
         padding: 10px 20px;
         margin: 10px;
         background-color: #fff;
@@ -15,10 +21,11 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
+        color: blue;
     }
     .btn:hover {
         background-color: #ccc;
-        color: #fff;
+        color: white;
     }
     .top-right-container {
         position: absolute;
@@ -33,17 +40,32 @@
         margin: 0;
         border: none;
         background-color: transparent;
-        color: black;
+        color: blue;
         font-size: 16px;
     }
     .top-right-container .btn:hover {
         background-color: transparent;
-        color: black;
+        color: blue;
         text-decoration: underline;
     }
     .center-content {
         text-align: center;
         margin-top: 150px;
+    }
+    .sign-out-btn {
+        background-color: darkblue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .sign-out-btn:hover {
+        background-color: #0056b3;
+    }
+    .welcome-text {
+        font-size: 1.5em; /* Increased font size for the welcome message */
     }
 </style>
 </head>
@@ -55,7 +77,7 @@
         if (user != null) {
             session.setAttribute("username", user);
             out.println("<span>" + user + "</span><br><br>"); 
-            out.println("<div><button class='btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
+            out.println("<div><button class='sign-out-btn' onclick=\"window.location.href='logout.jsp'\">Sign Out</button></div>");
         }
     %>
 </div>
@@ -64,7 +86,7 @@
     <h1>Welcome to Service Portal</h1>
     <%
         if (user != null) {
-            out.println("<span>Welcome, " + user + "!</span><br><br>");
+            out.println("<span class='welcome-text'>Welcome, " + user + "!</span><br><br>");
             out.println("<button class='btn' onclick=\"window.location.href='shiftHandoverForm.jsp'\">Shift Handover Form</button>");
             out.println("<button class='btn' onclick=\"window.location.href='searchDetailsForm.jsp'\">Search Details</button>");
         } else {
