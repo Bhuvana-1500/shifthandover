@@ -8,9 +8,9 @@
 <title>SearchDetails</title>
 <style>
     table {
-        border-collapse: collapse; /* Ensure single line borders between cells */
+        border-collapse: collapse;
         width: 100%;
-        border: none; /* Initially hide borders */
+        border: none;
     }
     th, td {
         padding: 8px;
@@ -19,15 +19,14 @@
     th {
         background-color: #f2f2f2;
     }
-    /* Adjustments for form layout */
     form {
-        text-align: left; /* Align form elements to the left */
+        text-align: left;
     }
     table input[type="date"], table input[type="text"] {
-        width: calc(100% - 18px); /* Adjust input width to fit the cell */
-        padding: 6px; /* Adjust input padding */
-        margin: 0; /* Remove default margin */
-        box-sizing: border-box; /* Ensure padding and border are included in the width */
+        width: calc(100% - 18px);
+        padding: 6px;
+        margin: 0;
+        box-sizing: border-box;
     }
 </style>
 </head>
@@ -72,23 +71,37 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
-                    out.println("<center><table border='1'>");
-                    out.println("<tr><th>Date</th><th>Name</th><th>Department</th><th>Comments</th></tr>");
+                    out.println("<center><form method='post' action='updateComments.jsp'><table border='1'>");
+                    out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
+                        String id = rs.getString("id");
                         String dt = rs.getString("date");
                         String nm = rs.getString("name");
                         String dp = rs.getString("department");
                         String co = rs.getString("comments");
                         out.println("<tr>");
-                        out.println("<td>" + dt + "</td>");
+                        out.println("<td>" + id + "</td>");
+                        out.println("<td><input type='hidden' name='id' value='" + id + "'>" + dt + "</td>");
                         out.println("<td>" + nm + "</td>");
                         out.println("<td>" + dp + "</td>");
                         out.println("<td>" + co + "</td>");
+                        out.println("<td><input type='text' name='newComment_" + id + "'></td>"); // Use unique name for each new comment input
                         out.println("</tr>");
                     }
 
-                    out.println("</table></center>");
+                    out.println("</table>");
+                    out.println("<input type='submit' value='Add Comment'></form></center>");
+
+                    // Display updated comments if available in session
+                    HttpSession currentSession = request.getSession(false);
+                    if (currentSession != null) {
+                        String updatedComments = (String) currentSession.getAttribute("updatedComments");
+                        if (updatedComments != null && !updatedComments.isEmpty()) {
+                            out.println("<center><p>" + updatedComments + "</p></center>");
+                            currentSession.removeAttribute("updatedComments"); // Clear session attribute
+                        }
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
