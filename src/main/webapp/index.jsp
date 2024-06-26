@@ -5,9 +5,14 @@
 <meta charset="ISO-8859-1">
 <title>ShiftHandover</title>
 <style>
+    @font-face {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
     body {
         color: navy;
         font-size: 1.2em; /* Increased font size for all text */
+        font-family: 'Apotos', sans-serif; /* Use Apotos font */
+        font-weight: bold; /* Make text bold */
     }
     h1 {
         font-size: 2em;
@@ -18,11 +23,12 @@
         padding: 10px 20px;
         margin: 10px;
         background-color: lightsteelblue; /* Match the div background color */
-        border: 1px solid #ccc;
+        border: 1px solid darkgrey; /* Dark grey border */
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         color: navy;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Apotos font */
     }
     .btn:hover {
         background-color: #ccc;
@@ -43,6 +49,7 @@
         background-color: transparent;
         color: navy;
         font-size: 16px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Apotos font */
     }
     .top-right-container .btn:hover {
         background-color: transparent;
@@ -61,6 +68,7 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Apotos font */
     }
     .sign-out-btn:hover {
         background-color: #0056b3;
