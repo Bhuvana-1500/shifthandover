@@ -16,6 +16,10 @@
     }
     h1 {
         font-size: 2em;
+        background-color: darkblue;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
     }
     .btn {
         height: 100px;
@@ -23,12 +27,14 @@
         padding: 10px 20px;
         margin: 10px;
         background-color: lightsteelblue; /* Match the div background color */
-        border: 1px solid darkgrey; /* Dark grey border */
+        border: 2px solid darkgrey; /* Increased border width */
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         color: navy;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Apotos font */
+        font-size: 1.5em; /* Increased font size for button text */
+        font-weight: bold; /* Make button text bold */
     }
     .btn:hover {
         background-color: #ccc;
