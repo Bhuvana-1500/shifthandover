@@ -6,7 +6,8 @@
 <title>ShiftHandover</title>
 <style>
     body {
-        color: blue;
+        color: navy;
+        font-size: 1.2em; /* Increased font size for all text */
     }
     h1 {
         font-size: 2em;
@@ -16,12 +17,12 @@
         width: 150px; /* Increased width */
         padding: 10px 20px;
         margin: 10px;
-        background-color: #fff;
+        background-color: lightsteelblue; /* Match the div background color */
         border: 1px solid #ccc;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
-        color: blue;
+        color: navy;
     }
     .btn:hover {
         background-color: #ccc;
@@ -40,12 +41,12 @@
         margin: 0;
         border: none;
         background-color: transparent;
-        color: blue;
+        color: navy;
         font-size: 16px;
     }
     .top-right-container .btn:hover {
         background-color: transparent;
-        color: blue;
+        color: navy;
         text-decoration: underline;
     }
     .center-content {
