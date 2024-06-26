@@ -55,7 +55,7 @@
     }
     .error-message {
         font-size: 1.2em;
-        color: red;
+        color: green;
     }
 </style>
 <script>
