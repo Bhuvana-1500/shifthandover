@@ -47,7 +47,15 @@
     }
     .message {
         font-size: 1.2em;
-        color: red; /* or green, based on your needs */
+        color: red; /* Default color is red */
+    }
+    .success-message {
+        font-size: 1.2em;
+        color: green;
+    }
+    .error-message {
+        font-size: 1.2em;
+        color: red;
     }
 </style>
 <script>
@@ -110,14 +118,14 @@
             ps.setString(4, com1);
             int rs1 = ps.executeUpdate();
             if (rs1 > 0) {
-                out.println("<center><p class='message' style='color:green;'>Record Added..</p></center>");
+                out.println("<center><p class='success-message'>Record Added..</p></center>");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<center><p class='message'>An error occurred while processing your request.</p></center>");
+            out.println("<center><p class='error-message'>An error occurred while processing your request.</p></center>");
         }
     } else {
-        out.println("<center><p class='message'>Please Insert the Data...!!!</p></center>");
+        out.println("<center><p class='error-message'>Please Insert the Data...!!!</p></center>");
     }
 %>
 </center>
