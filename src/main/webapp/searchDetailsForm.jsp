@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,6 @@
         color: navy;
         font-size: 1.2em; /* Increased font size for all text */
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
-        font-weight: bold; /* Make text bold */
     }
     h1 {
         font-size: 2em;
@@ -62,37 +62,33 @@
         background-color: #ccc;
         color: white;
     }
-    .center-content {
-        text-align: center;
-        margin-top: 150px;
-    }
 </style>
 </head>
-<body>
+<body style="background-color: lightsteelblue;">
 <div style="height:700px; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
     <center>
-        <div style="width:300px;">
-            <form method="post">
-                <h1>Search Your Details</h1>
-                <table>
-                    <tr>
-                        <td>Date:</td>
-                        <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
-                    </tr>
-                </table>
-                <center>
-                    <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
-                    <input type="submit" value="Search" class="btn">
-                </center>
-            </form>
-        </div>
-    </center>
+    <div style="width:300px;">
+<form method="post">
+<h1>Search Your Details</h1>
+<table>
+<tr>
+<td>Date:</td>
+<td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
+</tr>
+</table>
+<center>
+    <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
+    <input type="submit" value="search" class="btn">
+</center>
+</form>
+</div>
+</center>
 
-    <%
-        boolean searchPerformed = request.getParameter("dates") != null;
-        boolean updatePerformed = request.getParameterValues("id") != null;
+<%
+    boolean searchPerformed = request.getParameter("dates") != null;
+    boolean updatePerformed = request.getParameterValues("id") != null;
 
-        if (updatePerformed) {
+    if (updatePerformed) {
         // Code from updateComments.jsp
         String[] ids = request.getParameterValues("id");
         String[] newComments = new String[ids.length];
@@ -180,7 +176,7 @@
                     }
 
                     out.println("</table>");
-                    out.println("<input type='submit' value='Add Comment'></form></center>");
+                    out.println("<input type='submit' value='Add Comment' class='btn'></form></center>");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -190,8 +186,8 @@
             out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
         }
     }
-    %>
 
+%>
 </div>
 </body>
 </html>
