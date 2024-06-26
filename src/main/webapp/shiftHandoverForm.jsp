@@ -45,6 +45,10 @@
     table {
         margin: auto;
     }
+    .message {
+        font-size: 1.2em;
+        color: red; /* or green, based on your needs */
+    }
 </style>
 <script>
     window.onload = function() {
@@ -106,14 +110,14 @@
             ps.setString(4, com1);
             int rs1 = ps.executeUpdate();
             if (rs1 > 0) {
-                out.println("<center><h1 style='color:green;'>Record Added..</h1></center>");
+                out.println("<center><p class='message' style='color:green;'>Record Added..</p></center>");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<center><h1 style='color:red;'>An error occurred while processing your request.</h1></center>");
+            out.println("<center><p class='message'>An error occurred while processing your request.</p></center>");
         }
     } else {
-        out.println("<center><h1>Please Insert the Data...!!!</h1></center>");
+        out.println("<center><p class='message'>Please Insert the Data...!!!</p></center>");
     }
 %>
 </center>
