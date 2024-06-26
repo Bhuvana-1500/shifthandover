@@ -20,7 +20,7 @@
 </script>
 </head>
 <body>
-<div style="height:700px; width:700px; margin:auto; background-color:skyblue; border-radius:15px; padding:50px;">
+<div style="height:700px; width:700px; margin:auto; background-color:lightsteelblue; border-radius:15px; padding:50px;">
 <center>
 <form method="post">
 <h1>Shift Handover</h1>
