@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
         transition: background-color 0.3s, color 0.3s;
         color: navy;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Apotos font */
-        font-size: 1.5em; /* Increased font size for button text */
+        font-size: 1.2em; /* Decreased font size for button text */
         font-weight: bold; /* Make button text bold */
     }
     .btn:hover {
