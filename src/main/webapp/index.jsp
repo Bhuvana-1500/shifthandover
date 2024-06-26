@@ -22,8 +22,8 @@
         border-radius: 5px;
     }
     .btn {
-        height: 100px;
-        width: 150px; /* Increased width */
+        height: 130px;
+        width: 160px; /* Increased width */
         padding: 10px 20px;
         margin: 10px;
         background-color: lightsteelblue; /* Match the div background color */
