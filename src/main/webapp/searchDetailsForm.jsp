@@ -1,12 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>SearchDetails</title>
 <style>
+    @font-face {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+        color: navy;
+        font-size: 1.2em; /* Increased font size for all text */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
+        font-weight: bold; /* Make text bold */
+    }
+    h1 {
+        font-size: 2em;
+        background-color: darkblue;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
     table {
         border-collapse: collapse;
         width: 100%;
@@ -28,33 +43,56 @@
         margin: 0;
         box-sizing: border-box;
     }
+    .btn {
+        height: 130px;
+        width: 160px; /* Increased width */
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: lightsteelblue; /* Match the div background color */
+        border: 2px solid darkgrey; /* Increased border width */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        color: navy;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
+        font-size: 1.0em; /* Decreased font size for button text */
+        font-weight: bold; /* Make button text bold */
+    }
+    .btn:hover {
+        background-color: #ccc;
+        color: white;
+    }
+    .center-content {
+        text-align: center;
+        margin-top: 150px;
+    }
 </style>
 </head>
 <body>
 <div style="height:700px; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
     <center>
-    <div style="width:300px;">
-<form method="post">
-<h1>Search Your Details</h1>
-<table>
-<tr>
-<td>Date:</td>
-<td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
-</tr>
-</table>
-<center>
-    <button type="button" onclick="window.location.href='index.jsp'">Back</button>
-    <input type="submit" value="search">
-</center>
-</form>
-</div>
-</center>
+        <div style="width:300px;">
+            <form method="post">
+                <h1>Search Your Details</h1>
+                <table>
+                    <tr>
+                        <td>Date:</td>
+                        <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
+                    </tr>
+                </table>
+                <center>
+                    <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
+                    <input type="submit" value="Search" class="btn">
+                </center>
+            </form>
+        </div>
+    </center>
 
-<%
-    boolean searchPerformed = request.getParameter("dates") != null;
-    boolean updatePerformed = request.getParameterValues("id") != null;
+    <%
+        boolean searchPerformed = request.getParameter("dates") != null;
+        boolean updatePerformed = request.getParameterValues("id") != null;
 
-    if (updatePerformed) {
+        if (updatePerformed) {
         // Code from updateComments.jsp
         String[] ids = request.getParameterValues("id");
         String[] newComments = new String[ids.length];
@@ -152,7 +190,8 @@
             out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
         }
     }
-%>
+    %>
+
 </div>
 </body>
 </html>
