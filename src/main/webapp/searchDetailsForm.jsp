@@ -62,6 +62,10 @@
         font-size: 1.2em;
         color: red; /* or green, based on your needs */
     }
+    /* Hide table border when search is not performed */
+    .no-border {
+        border: none !important;
+    }
 </style>
 </head>
 <body>
@@ -153,7 +157,7 @@
                             out.println("<center><p class='message' style='color:red;'>Record not found</p></center>");
                         } else {
                             out.println("<center><p class='message' style='color:green;'>Your details based on your date:</p></center>");
-                            out.println("<center><form method='post'><table id='resultTable' border='1'>");
+                            out.println("<center><form method='post'><table id='resultTable' class='<%= searchPerformed ? \"\" : \"no-border\" %>' border='1'>");
                             out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                             while (rs.next()) {
@@ -188,7 +192,7 @@
         <script>
             // JavaScript to toggle table border after search
             <% if (!searchPerformed) { %>
-                document.getElementById('resultTable').style.border = 'none';
+                document.getElementById('resultTable').classList.add('no-border');
             <% } %>
         </script>
 
