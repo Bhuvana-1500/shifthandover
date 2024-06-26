@@ -20,7 +20,6 @@
     table {
         border-collapse: collapse;
         width: 100%;
-        border: 2px solid darkblue; /* Table border color */
         margin-top: 20px;
     }
     th, td {
@@ -70,7 +69,8 @@
     <center>
         <form method="post">
             <h1>Search Your Details</h1>
-            <table>
+            <!-- Removed table border -->
+            <table style="border: none;">
                 <tr>
                     <td>Date:</td>
                     <td><input type="date" placeholder="YYYY-MM-DD" name="dates" class="input-box"></td>
