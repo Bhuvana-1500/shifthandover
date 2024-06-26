@@ -11,9 +11,10 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.2em;
         color: navy;
-        font-size: 1.2em; /* Increased font size for all text */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
+        background-color: lightsteelblue;
     }
     h1 {
         font-size: 2em;
@@ -45,46 +46,54 @@
     }
     .btn {
         height: 130px;
-        width: 160px; /* Increased width */
+        width: 160px;
         padding: 10px 20px;
         margin: 10px;
-        background-color: lightsteelblue; /* Match the div background color */
-        border: 2px solid darkgrey; /* Increased border width */
+        background-color: lightsteelblue;
+        border: 2px solid darkgrey;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         color: navy;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use Segoe UI font */
-        font-size: 1.0em; /* Decreased font size for button text */
-        font-weight: bold; /* Make button text bold */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.0em;
+        font-weight: bold;
     }
     .btn:hover {
         background-color: #ccc;
         color: white;
     }
+    .container {
+        height: 700px;
+        width: 700px;
+        margin: auto;
+        background-color: pink;
+        border-radius: 15px;
+        padding: 50px;
+    }
 </style>
 </head>
-<body style="background-color: lightsteelblue;">
-<div style="height:700px; width:700px; margin:auto; background-color:pink; border-radius:15px; padding:50px;">
+<body>
+<div class="container">
     <center>
     <div style="width:300px;">
-<form method="post">
-<h1>Search Your Details</h1>
-<table>
-<tr>
-<td>Date:</td>
-<td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
-</tr>
-</table>
-<center>
-    <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
-    <input type="submit" value="search" class="btn">
-</center>
-</form>
-</div>
-</center>
+    <form method="post">
+        <h1>Search Your Details</h1>
+        <table>
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
+            </tr>
+        </table>
+        <center>
+            <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
+            <input type="submit" value="Search" class="btn">
+        </center>
+    </form>
+    </div>
+    </center>
 
-<%
+    <%
     boolean searchPerformed = request.getParameter("dates") != null;
     boolean updatePerformed = request.getParameterValues("id") != null;
 
@@ -187,7 +196,7 @@
         }
     }
 
-%>
+    %>
 </div>
 </body>
 </html>
