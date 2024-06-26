@@ -20,15 +20,17 @@
     table {
         border-collapse: collapse;
         width: 100%;
-        border: none;
+        border: 2px solid darkblue; /* Table border color */
         margin-top: 20px;
     }
     th, td {
         padding: 8px;
         text-align: center;
+        border: 1px solid white; /* Border for table cells */
     }
     th {
-        background-color: #f2f2f2;
+        background-color: darkblue; /* Header background color */
+        color: white; /* Header text color */
     }
     .input-box {
         width: calc(100% - 18px);
@@ -151,7 +153,7 @@
                         if (!rs.isBeforeFirst()) { // Check if ResultSet is empty
                             out.println("<center><p class='message' style='color:red;'>Record not found</p></center>");
                         } else {
-                            out.println("<center><p class='message' style='color:pink;'>Your details based on your date:</p></center>");
+                            out.println("<center><p class='message' style='color:green;'>Your details based on your date:</p></center>");
                             out.println("<center><form method='post'><table border='1'>");
                             out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
