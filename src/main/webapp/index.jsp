@@ -66,6 +66,12 @@
         text-align: center;
         margin-top: 150px;
     }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
     .sign-out-btn {
         background-color: darkblue;
         color: white;
@@ -102,8 +108,10 @@
     <%
         if (user != null) {
             out.println("<span class='welcome-text'>Welcome, " + user + "!</span><br><br>");
+            out.println("<div class='button-container'>");
             out.println("<button class='btn' onclick=\"window.location.href='shiftHandoverForm.jsp'\">Shift Handover Form</button>");
             out.println("<button class='btn' onclick=\"window.location.href='searchDetailsForm.jsp'\">Search Details</button>");
+            out.println("</div>");
         } else {
             out.println("<button class='btn' onclick=\"window.location.href='/.auth/login/aad'\">Sign In</button>");
         }
