@@ -52,6 +52,57 @@
 
 <%
     boolean searchPerformed = request.getParameter("dates") != null;
+    boolean updatePerformed = request.getParameterValues("id") != null;
+
+    if (updatePerformed) {
+        // Code from updateComments.jsp
+        String[] ids = request.getParameterValues("id");
+        String[] newComments = new String[ids.length];
+
+        for (int i = 0; i < ids.length; i++) {
+            newComments[i] = request.getParameter("newComment_" + ids[i]);
+        }
+
+        String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
+        String selectQuery = "SELECT comments FROM snp WHERE id = ?";
+        String updateQuery = "UPDATE snp SET comments = ? WHERE id = ?";
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection connect = DriverManager.getConnection(url);
+            connect.setAutoCommit(false);
+
+            for (int i = 0; i < ids.length; i++) {
+                String id = ids[i];
+                String newComment = newComments[i];
+
+                if (newComment != null && !newComment.isEmpty()) {
+                    // Retrieve existing comments
+                    PreparedStatement psSelect = connect.prepareStatement(selectQuery);
+                    psSelect.setString(1, id);
+                    ResultSet rs = psSelect.executeQuery();
+
+                    if (rs.next()) {
+                        String existingComments = rs.getString("comments");
+                        String updatedComments = existingComments + " " + newComment;
+
+                        // Update comments in the database
+                        PreparedStatement psUpdate = connect.prepareStatement(updateQuery);
+                        psUpdate.setString(1, updatedComments);
+                        psUpdate.setString(2, id);
+                        psUpdate.executeUpdate();
+                    }
+                }
+            }
+
+            connect.commit();
+            connect.setAutoCommit(true);
+            out.println("<center><h1 style='color:green;'>Comments updated successfully</h1></center>");
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
+        }
+    }
 
     if (searchPerformed) {
         String date1 = request.getParameter("dates");
@@ -71,7 +122,7 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
-                    out.println("<center><form method='post' action='updateComments.jsp'><table border='1'>");
+                    out.println("<center><form method='post'><table border='1'>");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
@@ -92,16 +143,6 @@
 
                     out.println("</table>");
                     out.println("<input type='submit' value='Add Comment'></form></center>");
-
-                    // Display updated comments if available in session
-                    HttpSession currentSession = request.getSession(false);
-                    if (currentSession != null) {
-                        String updatedComments = (String) currentSession.getAttribute("updatedComments");
-                        if (updatedComments != null && !updatedComments.isEmpty()) {
-                            out.println("<center><p>" + updatedComments + "</p></center>");
-                            currentSession.removeAttribute("updatedComments"); // Clear session attribute
-                        }
-                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
