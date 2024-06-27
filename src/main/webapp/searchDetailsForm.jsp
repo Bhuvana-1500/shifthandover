@@ -14,10 +14,10 @@
     h1 {
         background-color: darkblue;
         color: white;
-        padding: 15px;
+        padding: 12px;
         border-radius: 5px;
         height: 50px;
-        width: 300px;
+        width: 270px;
     }
     .input-box {
         width: 300px;
