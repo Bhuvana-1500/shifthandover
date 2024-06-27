@@ -185,7 +185,7 @@
                     }
 
                     out.println("</table>");
-                    out.println("<input type='submit' value='Add Comment' class='btn'></form></center>");
+                    out.println("<center><input type='submit' value='Add Comment' class='btn'></center></form></center>");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
