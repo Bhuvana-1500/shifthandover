@@ -87,7 +87,7 @@
                 <td>Date:</td>
                 <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
-        </table><br><br>
+        </table><br>
         <center>
             <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
             <input type="submit" value="Search" class="btn">
