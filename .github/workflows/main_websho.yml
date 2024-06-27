@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy WAR app to Azure Web App - websho
+name: Build and deploy JAR app to Azure Web App - websho
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -28,10 +28,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.war'
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
@@ -48,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3C7B735FB85F4A66BBABD32D36EDC072 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_013629BF6A0441929991EEA6BC927030 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DAD52CB350264779AED886C7F564299B }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EE39D47073B246BDB548EE8408BDE152 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_99C371B740A94936A89031C0DACE06E4 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BC7983373EBF4A259BDD52F3D53903D3 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'websho'
           slot-name: 'Production'
-          package: '*.war'
+          package: '*.jar'
           
