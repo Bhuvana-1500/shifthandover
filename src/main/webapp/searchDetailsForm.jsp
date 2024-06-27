@@ -30,6 +30,9 @@
         width: 100%;
         border: 2px solid darkblue;
     }
+    tb1{
+        border: 0px;
+    }
     th, td {
         padding: 8px;
         text-align: center;
