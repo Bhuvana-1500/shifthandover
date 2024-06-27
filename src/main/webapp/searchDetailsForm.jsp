@@ -105,7 +105,7 @@
             newComments[i] = request.getParameter("newComment_" + ids[i]);
         }
 
-        String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
+        String url = "jdbc:sqlserver://bhuvanasho.database.windows.net:1433;databaseName=shodb;user=bhuvana;password=Bhuvaneswari@15";
         String selectQuery = "SELECT comments FROM snp WHERE id = ?";
         String updateQuery = "UPDATE snp SET comments = ? WHERE id = ?";
 
@@ -150,7 +150,7 @@
         String date1 = request.getParameter("dates");
 
         if (date1 != null && !date1.isEmpty()) {
-            String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
+            String url = "jdbc:sqlserver://bhuvanasho.database.windows.net;databaseName=shodb;user=bhuvana;password=Bhuvaneswari@15";
             String query = "SELECT * FROM snp WHERE date = ?";
 
             try {
