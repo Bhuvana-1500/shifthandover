@@ -25,13 +25,13 @@
         border: 2px solid navy;
         border-radius: 5px;
     }
-    table {
+    table1 {
         border-collapse: collapse;
         width: 100%;
         border: 2px solid darkblue;
     }
     tb1 {
-        border: 0px;
+        border: 0px lightsteelblue;
     }
     th, td {
         padding: 8px;
@@ -168,7 +168,7 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h2 class='green-text'>Your details based on your date:</h2></center>");
-                    out.println("<center><form method='post'><table>");
+                    out.println("<center><form method='post'><table class="table1">");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
