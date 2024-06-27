@@ -64,7 +64,7 @@
         background-color: navy;
     }
     .container {
-        height: 700px;
+        height: auto;
         width: 700px;
         margin: auto;
         background-color: lightsteelblue;
