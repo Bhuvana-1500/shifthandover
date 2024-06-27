@@ -13,8 +13,8 @@
     String loginUrl = "https://login.microsoftonline.com/" + tenantId + "/oauth2/v2.0/authorize" +
                       "?client_id=" + clientId +
                       "&response_type=id_token" +
-                      "&redirect_uri=" + redirectUri +
-                      "&scope=" + scope +
+                      "&redirect_uri=" + java.net.URLEncoder.encode(redirectUri, "UTF-8") +
+                      "&scope=" + java.net.URLEncoder.encode(scope, "UTF-8") +
                       "&response_mode=fragment" +
                       "&nonce=" + java.util.UUID.randomUUID().toString();
 
