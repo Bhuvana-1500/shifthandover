@@ -82,7 +82,7 @@
     <div style="width:300px;">
     <form method="post">
         <h1>Search Your Details</h1>
-        <table>
+        <table class="tb1">
             <tr>
                 <td>Date:</td>
                 <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
