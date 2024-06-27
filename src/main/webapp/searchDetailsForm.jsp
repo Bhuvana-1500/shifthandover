@@ -14,7 +14,7 @@
     h1 {
         background-color: darkblue;
         color: white;
-        padding: 10px;
+        padding: 15px;
         border-radius: 5px;
         height: 50px;
         width: 300px;
@@ -30,7 +30,7 @@
         width: 100%;
         border: 2px solid darkblue;
     }
-    tb1{
+    tb1 {
         border: 0px;
     }
     th, td {
@@ -81,13 +81,13 @@
     <center>
     <div style="width:300px;">
     <form method="post">
-        <h1>Search Your Details</h1>
+        <center><h1>Search Your Details</h1></center>
         <table class="tb1">
             <tr>
                 <td>Date:</td>
                 <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
-        </table> <br> <br>
+        </table><br><br>
         <center>
             <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
             <input type="submit" value="Search" class="btn">
