@@ -105,7 +105,7 @@
     String com1 = request.getParameter("com");
 
     if (date1 != null && name1 != null && dep1 != null && com1 != null && !date1.isEmpty() && !name1.isEmpty() && !dep1.isEmpty() && !com1.isEmpty()) { 
-        String url = "jdbc:sqlserver://bhuvanaserver.database.windows.net:1433;databaseName=db-bhuvana-eus;user=bhuvana;password=Bhuvaneswari@15";
+        String url = "jdbc:sqlserver://bhuvanasho.database.windows.net:1433;databaseName=shodb;user=bhuvana;password=Bhuvaneswari@15";
         String query = "INSERT INTO dbo.snp (date, name, department, comments) VALUES (?, ?, ?, ?)";
         
         try {
