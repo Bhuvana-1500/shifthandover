@@ -7,22 +7,23 @@
 <meta charset="ISO-8859-1">
 <title>SearchDetails</title>
 <style>
-    @font-face {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.2em;
-        color: navy;
-        background-color: lightsteelblue;
+        font-weight: bold;
     }
     h1 {
-        font-size: 2em;
         background-color: darkblue;
         color: white;
         padding: 10px;
         border-radius: 5px;
     }
+.input-box {
+        width: 300px; /* Increased width */
+        padding: 10px;
+        border: 2px solid navy; /* Increased border width */
+        border-radius: 5px;
+    }
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -75,7 +76,7 @@
         <table>
             <tr>
                 <td>Date:</td>
-                <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
+                <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
         </table>
         <center>
