@@ -17,7 +17,7 @@
         padding: 10px;
         border-radius: 5px;
         height: 50px;
-        width: 100px;
+        width: 400px;
     }
     .input-box {
         width: 300px;
@@ -140,10 +140,10 @@
 
             connect.commit();
             connect.setAutoCommit(true);
-            out.println("<center><h1 style='color:green;'>Comments updated successfully</h1></center>");
+            out.println("<center><h2 style='color:green;'>Comments updated successfully</h2></center>");
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
+            out.println("<center><h2 style='color:red;'>An error occurred while processing your request</h2></center>");
         }
     }
 
@@ -164,7 +164,7 @@
                 if (!rs.isBeforeFirst()) { // Check if ResultSet is empty
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
-                    out.println("<center><h1 class='green-text'>Your details based on your date:</h1></center>");
+                    out.println("<center><h2 class='green-text'>Your details based on your date:</h2></center>");
                     out.println("<center><form method='post'><table>");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
@@ -189,10 +189,10 @@
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
+                out.println("<center><h2 style='color:red;'>An error occurred while processing your request</h2></center>");
             }
         } else {
-            out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
+            out.println("<center><h2 style='color:red;'>Please enter a date</h2></center>");
         }
     }
     %>
