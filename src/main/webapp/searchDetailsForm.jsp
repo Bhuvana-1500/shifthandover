@@ -7,40 +7,33 @@
 <meta charset="ISO-8859-1">
 <title>SearchDetails</title>
 <style>
+    @font-face {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: bold;
+        font-size: 1.2em;
+        color: navy;
+        background-color: lightsteelblue;
     }
     h1 {
+        font-size: 2em;
         background-color: darkblue;
         color: white;
-        padding: 12px;
-        border-radius: 5px;
-        height: 50px;
-        width: 270px;
-    }
-    .input-box {
-        width: 300px;
         padding: 10px;
-        border: 2px solid navy;
         border-radius: 5px;
     }
-    table1 {
+    table {
         border-collapse: collapse;
         width: 100%;
-        border: 2px solid darkblue;
-    }
-    tb1 {
-        border: 0px lightsteelblue;
+        border: none;
     }
     th, td {
         padding: 8px;
         text-align: center;
-        border: 1px solid darkblue;
     }
     th {
-        background-color: darkblue;
-        color: white;
+        background-color: #f2f2f2;
     }
     form {
         text-align: left;
@@ -52,27 +45,31 @@
         box-sizing: border-box;
     }
     .btn {
-        background-color: darkblue;
-        color: white;
+        height: 130px;
+        width: 160px;
         padding: 10px 20px;
-        border: none;
+        margin: 10px;
+        background-color: lightsteelblue;
+        border: 2px solid darkgrey;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
+        color: navy;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.0em;
+        font-weight: bold;
     }
     .btn:hover {
-        background-color: navy;
+        background-color: #ccc;
+        color: white;
     }
     .container {
         height: 700px;
         width: 700px;
         margin: auto;
-        background-color: lightsteelblue;
+        background-color: pink;
         border-radius: 15px;
         padding: 50px;
-    }
-    .green-text {
-        color: green;
     }
 </style>
 </head>
@@ -81,13 +78,13 @@
     <center>
     <div style="width:300px;">
     <form method="post">
-        <center><h1>Search Your Details</h1></center>
-        <table class="tb1">
+        <h1>Search Your Details</h1>
+        <table>
             <tr>
                 <td>Date:</td>
-                <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
+                <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
-        </table><br>
+        </table>
         <center>
             <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
             <input type="submit" value="Search" class="btn">
@@ -143,10 +140,10 @@
 
             connect.commit();
             connect.setAutoCommit(true);
-            out.println("<center><h2 style='color:green;'>Comments updated successfully</h2></center>");
+            out.println("<center><h1 style='color:green;'>Comments updated successfully</h1></center>");
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<center><h2 style='color:red;'>An error occurred while processing your request</h2></center>");
+            out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
         }
     }
 
@@ -167,8 +164,8 @@
                 if (!rs.isBeforeFirst()) { // Check if ResultSet is empty
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
-                    out.println("<center><h2 class='green-text'>Your details based on your date:</h2></center>");
-                    out.println("<center><form method='post'><table class="table1">");
+                    out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
+                    out.println("<center><form method='post'><table border='1'>");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
@@ -183,21 +180,22 @@
                         out.println("<td>" + nm + "</td>");
                         out.println("<td>" + dp + "</td>");
                         out.println("<td>" + co + "</td>");
-                        out.println("<td><input type='text' name='newComment_" + id + "'></td>");
+                        out.println("<td><input type='text' name='newComment_" + id + "'></td>"); // Use unique name for each new comment input
                         out.println("</tr>");
                     }
 
                     out.println("</table>");
-                    out.println("<center><input type='submit' value='Add Comment' class='btn'></center></form></center>");
+                    out.println("<input type='submit' value='Add Comment' class='btn'></form></center>");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                out.println("<center><h2 style='color:red;'>An error occurred while processing your request</h2></center>");
+                out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
             }
         } else {
-            out.println("<center><h2 style='color:red;'>Please enter a date</h2></center>");
+            out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
         }
     }
+
     %>
 </div>
 </body>
