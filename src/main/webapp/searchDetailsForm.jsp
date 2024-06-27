@@ -45,23 +45,16 @@
         box-sizing: border-box;
     }
     .btn {
-        height: 130px;
-        width: 160px;
+        background-color: darkblue;
+        color: white;
         padding: 10px 20px;
-        margin: 10px;
-        background-color: lightsteelblue;
-        border: 2px solid darkgrey;
+        border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
-        color: navy;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.0em;
-        font-weight: bold;
     }
     .btn:hover {
-        background-color: #ccc;
-        color: white;
+        background-color: navy;
     }
     .container {
         height: 700px;
