@@ -17,7 +17,7 @@
         padding: 10px;
         border-radius: 5px;
         height: 50px;
-        width: 400px;
+        width: 300px;
     }
     .input-box {
         width: 300px;
@@ -87,7 +87,7 @@
                 <td>Date:</td>
                 <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
-        </table>
+        </table> <br> <br>
         <center>
             <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
             <input type="submit" value="Search" class="btn">
