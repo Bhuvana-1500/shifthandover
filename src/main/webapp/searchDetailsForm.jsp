@@ -16,25 +16,28 @@
         color: white;
         padding: 10px;
         border-radius: 5px;
+        height: 50px;
+        width: 100px;
     }
-.input-box {
-        width: 300px; /* Increased width */
+    .input-box {
+        width: 300px;
         padding: 10px;
-        border: 2px solid navy; /* Increased border width */
+        border: 2px solid navy;
         border-radius: 5px;
     }
-
     table {
         border-collapse: collapse;
         width: 100%;
-        border: none;
+        border: 2px solid darkblue;
     }
     th, td {
         padding: 8px;
         text-align: center;
+        border: 1px solid darkblue;
     }
     th {
-        background-color: #f2f2f2;
+        background-color: darkblue;
+        color: white;
     }
     form {
         text-align: left;
@@ -64,6 +67,9 @@
         background-color: lightsteelblue;
         border-radius: 15px;
         padding: 50px;
+    }
+    .green-text {
+        color: green;
     }
 </style>
 </head>
@@ -158,8 +164,8 @@
                 if (!rs.isBeforeFirst()) { // Check if ResultSet is empty
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
-                    out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
-                    out.println("<center><form method='post'><table border='1'>");
+                    out.println("<center><h1 class='green-text'>Your details based on your date:</h1></center>");
+                    out.println("<center><form method='post'><table>");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
@@ -174,7 +180,7 @@
                         out.println("<td>" + nm + "</td>");
                         out.println("<td>" + dp + "</td>");
                         out.println("<td>" + co + "</td>");
-                        out.println("<td><input type='text' name='newComment_" + id + "'></td>"); // Use unique name for each new comment input
+                        out.println("<td><input type='text' name='newComment_" + id + "'></td>");
                         out.println("</tr>");
                     }
 
@@ -189,7 +195,6 @@
             out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
         }
     }
-
     %>
 </div>
 </body>
