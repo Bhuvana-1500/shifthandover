@@ -7,17 +7,14 @@
 <meta charset="ISO-8859-1">
 <title>SearchDetails</title>
 <style>
-    @font-face {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 1.2em;
         color: navy;
         background-color: lightsteelblue;
+        font-weight: bold;
     }
     h1 {
-        font-size: 2em;
         background-color: darkblue;
         color: white;
         padding: 10px;
@@ -27,6 +24,9 @@
         border-collapse: collapse;
         width: 100%;
         border: none;
+    }
+    t1{
+         border: 2px darkblue;
     }
     th, td {
         padding: 8px;
@@ -44,30 +44,29 @@
         margin: 0;
         box-sizing: border-box;
     }
+    .input-box {
+        width: 300px; /* Increased width */
+        padding: 10px;
+        border: 2px solid navy; /* Increased border width */
+        border-radius: 5px;
+    }
     .btn {
-        height: 130px;
-        width: 160px;
+        background-color: darkblue;
+        color: white;
         padding: 10px 20px;
-        margin: 10px;
-        background-color: lightsteelblue;
-        border: 2px solid darkgrey;
+        border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
-        color: navy;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.0em;
-        font-weight: bold;
     }
     .btn:hover {
-        background-color: #ccc;
-        color: white;
+        background-color: navy;
     }
     .container {
         height: 700px;
         width: 700px;
         margin: auto;
-        background-color: pink;
+        background-color: lightsteelblue;
         border-radius: 15px;
         padding: 50px;
     }
@@ -82,7 +81,7 @@
         <table>
             <tr>
                 <td>Date:</td>
-                <td><input type="date" placeholder="YYYY-MM-DD" name="dates"></td>
+                <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
         </table>
         <center>
@@ -165,7 +164,7 @@
                     out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
                 } else {
                     out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
-                    out.println("<center><form method='post'><table border='1'>");
+                    out.println("<center><form method='post'><table border='1' class="tb1">");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
