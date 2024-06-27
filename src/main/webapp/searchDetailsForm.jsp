@@ -9,9 +9,6 @@
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.2em;
-        color: navy;
-        background-color: lightsteelblue;
         font-weight: bold;
     }
     h1 {
@@ -19,21 +16,31 @@
         color: white;
         padding: 10px;
         border-radius: 5px;
+        height: 50px;
+        width: 300px;
+    }
+    .input-box {
+        width: 300px;
+        padding: 10px;
+        border: 2px solid navy;
+        border-radius: 5px;
     }
     table {
         border-collapse: collapse;
         width: 100%;
-        border: none;
+        border: 2px solid darkblue;
     }
-    t1{
-         border: 2px darkblue;
+    .tb1 {
+        border: 0px;
     }
     th, td {
         padding: 8px;
         text-align: center;
+        border: 1px solid darkblue;
     }
     th {
-        background-color: #f2f2f2;
+        background-color: darkblue;
+        color: white;
     }
     form {
         text-align: left;
@@ -43,12 +50,6 @@
         padding: 6px;
         margin: 0;
         box-sizing: border-box;
-    }
-    .input-box {
-        width: 300px; /* Increased width */
-        padding: 10px;
-        border: 2px solid navy; /* Increased border width */
-        border-radius: 5px;
     }
     .btn {
         background-color: darkblue;
@@ -70,6 +71,9 @@
         border-radius: 15px;
         padding: 50px;
     }
+    .green-text {
+        color: green;
+    }
 </style>
 </head>
 <body>
@@ -78,12 +82,12 @@
     <div style="width:300px;">
     <form method="post">
         <h1>Search Your Details</h1>
-        <table>
+        <table class="tb1">
             <tr>
                 <td>Date:</td>
                 <td><input type="date" class="input-box" placeholder="YYYY-MM-DD" name="dates"></td>
             </tr>
-        </table><br>
+        </table> <br> <br>
         <center>
             <button type="button" onclick="window.location.href='index.jsp'" class="btn">Back</button>
             <input type="submit" value="Search" class="btn">
@@ -139,10 +143,10 @@
 
             connect.commit();
             connect.setAutoCommit(true);
-            out.println("<center><h1 style='color:green;'>Comments updated successfully</h1></center>");
+            out.println("<center><h2 style='color:green;'>Comments updated successfully</h2></center>");
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
+            out.println("<center><h2 style='color:red;'>An error occurred while processing your request</h2></center>");
         }
     }
 
@@ -150,7 +154,7 @@
         String date1 = request.getParameter("dates");
 
         if (date1 != null && !date1.isEmpty()) {
-            String url = "jdbc:sqlserver://bhuvanasho.database.windows.net;databaseName=shodb;user=bhuvana;password=Bhuvaneswari@15";
+            String url = "jdbc:sqlserver://bhuvanasho.database.windows.net:1433;databaseName=shodb;user=bhuvana;password=Bhuvaneswari@15";
             String query = "SELECT * FROM snp WHERE date = ?";
 
             try {
@@ -161,10 +165,10 @@
                 ResultSet rs = ps.executeQuery();
 
                 if (!rs.isBeforeFirst()) { // Check if ResultSet is empty
-                    out.println("<center><h1 style='color:red;'>Record not found</h1></center>");
+                    out.println("<center><h2 style='color:red;'>Record not found</h2></center>");
                 } else {
-                    out.println("<center><h1 style='color:pink;'>Your details based on your date:</h1></center>");
-                    out.println("<center><form method='post'><table border='1' class="tb1">");
+                    out.println("<center><h2 class='green-text'>Your details based on your date:</h2></center>");
+                    out.println("<center><form method='post'><table border='1' class='tb1'>");
                     out.println("<tr><th>ID</th><th>Date</th><th>Name</th><th>Department</th><th>Comments</th><th>New Comments</th></tr>");
 
                     while (rs.next()) {
@@ -179,22 +183,21 @@
                         out.println("<td>" + nm + "</td>");
                         out.println("<td>" + dp + "</td>");
                         out.println("<td>" + co + "</td>");
-                        out.println("<td><input type='text' name='newComment_" + id + "'></td>"); // Use unique name for each new comment input
+                        out.println("<td><input type='text' name='newComment_" + id + "'></td>");
                         out.println("</tr>");
                     }
 
                     out.println("</table>");
-                    out.println("<input type='submit' value='Add Comment' class='btn'></form></center>");
+                    out.println("<center><input type='submit' value='Add Comment' class='btn'></center></form></center>");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                out.println("<center><h1 style='color:red;'>An error occurred while processing your request</h1></center>");
+                out.println("<center><h2 style='color:red;'>An error occurred while processing your request</h2></center>");
             }
         } else {
-            out.println("<center><h1 style='color:red;'>Please enter a date</h1></center>");
+            out.println("<center><h2 style='color:red;'>Please enter a date</h2></center>");
         }
     }
-
     %>
 </div>
 </body>
