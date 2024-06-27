@@ -61,7 +61,7 @@
         height: 700px;
         width: 700px;
         margin: auto;
-        background-color: pink;
+        background-color: lightsteelblue;
         border-radius: 15px;
         padding: 50px;
     }
